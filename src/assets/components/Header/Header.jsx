@@ -5,7 +5,7 @@ const Header = () => {
   const [isNavbarActive, setNavbarActive] = useState(false);
   const [isHeaderSticky, setHeaderSticky] = useState(false);
   const [isThemeDark, setThemeDark] = useState(
-    localStorage.getItem("theme") === "dark_theme"
+    localStorage.getItem("theme") !== "light_theme" // Default to dark theme
   );
 
   // Toggle element class
@@ -38,14 +38,14 @@ const Header = () => {
     localStorage.setItem("theme", newTheme);
   };
 
-  // Set initial theme based on localStorage
+  // Set initial theme based on localStorage, default to dark theme
   useEffect(() => {
     if (localStorage.getItem("theme") === "light_theme") {
       document.body.classList.remove("dark_theme");
       document.body.classList.add("light_theme");
     } else {
       document.body.classList.remove("light_theme");
-      document.body.classList.add("dark_theme");
+      document.body.classList.add("dark_theme"); // Default to dark theme
     }
   }, []);
 
@@ -58,7 +58,7 @@ const Header = () => {
 
         <div className="navbar-actions">
           <button
-            className={`theme-btn ${isThemeDark ? "active" : ""}`}
+            className={`theme-btn ${!isThemeDark ? "active" : ""}`} // Button is active when it's light
             aria-label="Change Theme"
             title="Change Theme"
             onClick={handleThemeToggle}
@@ -105,3 +105,4 @@ const Header = () => {
 };
 
 export default Header;
+
