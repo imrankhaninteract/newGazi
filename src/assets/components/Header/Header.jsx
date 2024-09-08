@@ -110,16 +110,16 @@ const Header = () => {
           <section className="hero" id="home">
             <figure className="hero-banner">
               <picture>
-                <source
-                  srcSet="./assets/images/hero-banner.png"
+                {/* <source
+                  srcSet="./pictures/hero-banner.png"
                   media="(min-width: 768px)"
                 />
                 <source
-                  srcSet="./assets/images/hero-banner.png"
+                  srcSet="./pictures/hero-banner.png"
                   media="(min-width: 500px)"
-                />
+                /> */}
                 <img
-                  src="./assets/images/hero-banner.png"
+                  src=""
                   alt="A man in a blue shirt with a happy expression"
                   className="w-100"
                 />
