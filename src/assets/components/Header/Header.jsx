@@ -54,6 +54,7 @@ const Header = () => {
   return (
     <>
       <header className={`header ${isHeaderSticky ? "active" : ""}`} data-header>
+     
         <div className="container">
           <h1 className="h1 logo">
             <a href="#">Gazi<span>.</span></a>
@@ -106,20 +107,14 @@ const Header = () => {
       </header>
 
       <main>
+
         <article className="container">
           <section className="hero" id="home">
             <figure className="hero-banner">
               <picture>
-                {/* <source
-                  srcSet="./pictures/hero-banner.png"
-                  media="(min-width: 768px)"
-                />
-                <source
-                  srcSet="./pictures/hero-banner.png"
-                  media="(min-width: 500px)"
-                /> */}
+              
                 <img
-                  src=""
+                  src="./pictures/hero-banner.png"
                   alt="A man in a blue shirt with a happy expression"
                   className="w-100"
                 />
