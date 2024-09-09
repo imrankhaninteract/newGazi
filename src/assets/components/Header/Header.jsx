@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import './Header.css';
+import heroBanner from './pictures/hero-banner.png'
 
 
 
@@ -114,8 +115,8 @@ const Header = () => {
               <picture>
               
                 <img
-                  src="./pictures/hero-banner.png"
-                  alt="A man in a blue shirt with a happy expression"
+                  src= {heroBanner}
+                  alt="A man in a blue shirt with a happy "
                   className="w-100"
                 />
               </picture>
