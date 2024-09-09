@@ -2,14 +2,12 @@ import React, { useState, useEffect } from "react";
 import './Header.css';
 import heroBanner from './pictures/hero-banner.png'
 
-
-
 const Header = () => {
   const [isNavbarActive, setNavbarActive] = useState(false);
   const [isHeaderSticky, setHeaderSticky] = useState(false);
-  const [isThemeDark, setThemeDark] = useState(
-    localStorage.getItem("theme") !== "light_theme" // Default to dark theme
-  );
+  const [isThemeDark, setThemeDark] = useState(() => {
+    return localStorage.getItem("theme") !== "light_theme";
+  });
 
   // Toggle element class
   const toggleElement = (setStateFunc) => {
@@ -36,26 +34,20 @@ const Header = () => {
   const handleThemeToggle = () => {
     const newTheme = isThemeDark ? "light_theme" : "dark_theme";
     setThemeDark(!isThemeDark);
-    document.body.classList.toggle("dark_theme", !isThemeDark);
-    document.body.classList.toggle("light_theme", isThemeDark);
+    document.body.classList.remove("dark_theme", "light_theme");
+    document.body.classList.add(newTheme);
     localStorage.setItem("theme", newTheme);
   };
 
   // Set initial theme based on localStorage, default to dark theme
   useEffect(() => {
-    if (localStorage.getItem("theme") === "light_theme") {
-      document.body.classList.remove("dark_theme");
-      document.body.classList.add("light_theme");
-    } else {
-      document.body.classList.remove("light_theme");
-      document.body.classList.add("dark_theme"); // Default to dark theme
-    }
+    const theme = localStorage.getItem("theme") || "dark_theme";
+    document.body.classList.add(theme);
   }, []);
 
   return (
     <>
       <header className={`header ${isHeaderSticky ? "active" : ""}`} data-header>
-     
         <div className="container">
           <h1 className="h1 logo">
             <a href="#">Gazi<span>.</span></a>
@@ -108,14 +100,12 @@ const Header = () => {
       </header>
 
       <main>
-
         <article className="container">
           <section className="hero" id="home">
             <figure className="hero-banner">
               <picture>
-              
                 <img
-                  src= {heroBanner}
+                  src={heroBanner}
                   alt="A man in a blue shirt with a happy "
                   className="w-100"
                 />
@@ -161,4 +151,3 @@ const Header = () => {
 };
 
 export default Header;
-

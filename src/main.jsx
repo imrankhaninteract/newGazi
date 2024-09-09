@@ -5,6 +5,7 @@ import { createRoot } from 'react-dom/client'
 
 
 import Header from './assets/components/Header/Header.jsx'
+import Works from './assets/components/Works/Works.jsx'
 
 
 createRoot(document.getElementById('root')).render(
@@ -12,6 +13,7 @@ createRoot(document.getElementById('root')).render(
    
     
     <Header />
+    <Works />
     
 
   
